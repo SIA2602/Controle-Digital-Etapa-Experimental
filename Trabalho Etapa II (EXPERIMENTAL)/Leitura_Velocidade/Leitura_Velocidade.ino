@@ -1,7 +1,7 @@
 //variaveis para motor
 int pino = 5;
 
-int valuePWM = 100;
+int valuePWM = 90;
 double cicloTrabalho = (valuePWM*100)/255;
 double Vout = 5*(cicloTrabalho/100);
 int speedAtual = valuePWM;
@@ -51,12 +51,14 @@ void loop() {
     timeold = millis();
     pulsos = 0;    
     attachInterrupt(0, contador, RISING);
+    
+    Serial.println(rpm); 
   }  
   
-  Serial.print(Vout); 
-  Serial.print(" ");  
-  Serial.print(timeold);
-  Serial.print(" "); 
-  Serial.println(rpm);   
+  //Serial.print(Vout); 
+  //Serial.print(" ");  
+  //Serial.print(timeold);
+  //Serial.print(" "); 
+  //Serial.println(rpm);   
   delay(100); 
 }
